@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" 
+        content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendário</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Style -->
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <section class="calendar" aria-label="Calendário">
+      <header class="calendar__header">
+        <button class="calendar__btn" id="prevMonth" title="Mês Anterior" aria-label="Mês Anterior">&#9664;</button>
+        <h2 class="calendar__header-title" id="monthYear">Carregando...</h2>
+        <div>
+          <button class="calendar__btn calendar__btn--today" id="todayBtn" title="Hoje" aria-label="Hoje">Hoje</button>
+          <button class="calendar__btn" id="nextMonth" title="Próximo Mês" aria-label="Próximo Mês">&#9654;</button>
+        </div>
+      </header>
+      <div class="calendar__weekdays">
+        <div class="calendar__weekdays__item">Dom</div>
+        <div class="calendar__weekdays__item">Seg</div>
+        <div class="calendar__weekdays__item">Ter</div>
+        <div class="calendar__weekdays__item">Qua</div>
+        <div class="calendar__weekdays__item">Qui</div>
+        <div class="calendar__weekdays__item">Sex</div>
+        <div class="calendar__weekdays__item">Sáb</div>
+      </div>
+      <div class="calendar__days" id="calendarDays">
+        <!-- Os dias serão renderizados via JavaScript -->
+      </div>
+    </section>
+    <section class="controls">
+      <button id="exportBtn" title="Exportar Eventos" aria-label="Exportar Eventos">Exportar</button>
+      <button id="importBtn" title="Importar Eventos" aria-label="Importar Eventos">Importar</button>
+      <button id="clearBtn" title="Limpar Progresso" aria-label="Limpar Progresso">Limpar</button>
+    </section>
+  </main>
+
+  <!-- Modal para gerenciamento de eventos -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalDateTitle">
+    <div class="modal">
+      <button class="modal__close" id="closeModal" title="Fechar" aria-label="Fechar">&times;</button>
+      <h3 class="modal__title" id="modalDateTitle">Eventos para </h3>
+      <form class="modal__form" id="eventForm">
+        <input type="text" class="modal__form-input" id="eventTitle" placeholder="Título do Evento" required aria-label="Título do Evento">
+        <textarea class="modal__form-textarea" id="eventDesc" placeholder="Descrição (opcional)" rows="3" aria-label="Descrição do Evento"></textarea>
+        <button type="submit" class="modal__form-btn">Salvar Evento</button>
+      </form>
+      <div class="modal__event-list" id="eventList">
+        <!-- Eventos do dia serão listados aqui -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrega o script externo -->
+  <script src="app.js"></script>
+</body>
+</html>
