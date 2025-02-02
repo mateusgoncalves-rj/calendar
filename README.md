@@ -1,4 +1,4 @@
-# Calendário Interativo
+# Calendário
 
 Um calendário moderno e intuitivo, desenvolvido com foco em UX e UI, para facilitar a organização de eventos e compromissos.
 
